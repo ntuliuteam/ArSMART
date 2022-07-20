@@ -78,7 +78,7 @@ If you use the tool or adapt the tool in your works or publications, you are req
   publisher={IEEE}
 }
 @article{chen2021marco,
-  title={MARCO: A High-performance Task M apping a nd R outing Co-optimization Framework for Point-to-Point NoC-based Heterogeneous Computing Systems},
+  title={MARCO: A High-performance Task Mapping and Routing Co-optimization Framework for Point-to-Point NoC-based Heterogeneous Computing Systems},
   author={Chen, Hui and Zhang, Zihao and Chen, Peng and Luo, Xiangzhong and Li, Shiqing and Liu, Weichen},
   journal={ACM Transactions on Embedded Computing Systems (TECS)},
   volume={20},
