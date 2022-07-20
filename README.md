@@ -2,11 +2,13 @@
 --------------------------------------------------------
 - This tool includes:
 - An improved SMART NoC simulator suppriting arbitrary-turn transmssion: ArSMART | ./simulator  
-
+- The task mapping and routing co-optimization framework: MARCO | in ./front-end/MARCO
+- The multipath parallel transmission routing algorithm: LAMP | in ./front-end/LAMP
+----------------------------------------------------------------------------------------
 SMART NoC, which transmits unconflicted flits to distant processing elements (PEs) in one cycle through the express bypass, is a high-performance NoC design     proposed recently.However, if contention occurs, flits with low priority would not only be buffered but also could not fully utilize bypass. Although there exist several routing algorithms that decrease contentions by rounding busy routers and links, they cannot be directly applicable to SMART since it lacks the support for arbitrary-turn (i.e., the number and direction of turns are free of constraints) routing. Thus, in this article, to minimize contentions and further utilize bypass, we propose an improved SMART NoC, called ArSMART, in which arbitrary-turn transmission is enabled. Specifically, ArSMART divides the whole NoC into multiple clusters where the route computation is conducted by the cluster controller and the data forwarding is performed by the bufferless reconfigurable router. Since the long-range transmission in SMART NoC needs to bypass the intermediate arbitration, to enable this feature, we directly configure the input and output ports connection rather than apply hop-by-hop table-based arbitration. To further explore the higher communication capabilities, effective adaptive routing algorithms that are compatible with ArSMART are proposed. The route computation overhead, one of the main concerns for adaptive routing algorithms, is hidden by our carefully designed control mechanism. 
 
 ![ArSMART NoC Design (a). Overview of ArSMART; (b). Cluster structure; (c). Router design.](Arsmart.JPG "ArSMART")
-- The task mapping and routing co-optimization framework: MARCO | in ./front-end/MARCO
+
 
 Heterogeneous computing systems (HCSs) , which consist of various processing elements (PEs) that vary in their processing ability, are usually facilitated by the network-on-chip (NoC) to interconnect its components. The emerging point-to-point NoCs which support single-cycle-multi-hop transmission, reduce or eliminate the latency dependence on distance, addressing the scalability concern raised by high latency for long-distance transmission and enlarging the design space of the routing algorithm to search the non-shortest paths. For such point-to-point NoC-based HCSs, resource management strategies which are managed by compilers, scheduler, or controllers, e.g., mapping and routing, are complicated for the following reasons:  
 (1) Due to the heterogeneity, mapping and routing need to optimize computation and communication concurrently (for homogeneous computing systems, only communication).  
@@ -16,7 +18,6 @@ Therefore, in this work, we propose MARCO, the mapping and routing co-optimizati
 
 ![Motivation examples. (a). DAG modeled application and processing rate of different PEs; (b).Computation-aware mapping and SOTA routing; (c). Communication-aware mapping and SOTA routing; (d).Co-optimized mapping and routing](Marco.JPG "MARCO") 
 
-- The multipath parallel transmission routing algorithm: LAMP | in ./front-end/LAMP
 
 Network-on-chip (NoC) is a promising solution to connect more than hundreds of processing elements (PEs). As the number of PEs increases, the high communication latency caused by the burst traffic hampers the speedup gained by computation acceleration. Although parallel multipath transmission is an effective method to reduce transmission latency, its advantages have not been fully exploited in previous works, especially for emerging point-to-point NoCs since:  
 (1) Previous static message splitting strategy increases contentions when traffic loads are heavy, degrading NoC performance.  
