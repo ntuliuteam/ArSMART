@@ -31,7 +31,7 @@ Thus, we propose a software and hardware collaborated design to reduce latency i
 See in different parts specifically.
 --------------------------------------------------------
 ## To use this program:  
-*  1. Compile simulatir according to   
+*  1. Compile simulatir according to https://github.com/ntuliuteam/ArSMART/tree/main/simulator .
 *  2. Put the tgff file in ./inputFile  
 *  3. Run main.py using flags or according instructions.  
     * a. flags:  
